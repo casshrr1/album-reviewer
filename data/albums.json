@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Tha Carter III",
+    "genre": "Hip Hop",
+    "release_year": 2008,
+    "artistId": 1
+  },
+  {
+    "id": 2,
+    "name": "Don't Be Dumb",
+    "genre": "Hip Hop",
+    "release_year": 2026,
+    "artistId": 2
+  },
+  {
+    "id": 3,
+    "name": "Wasteland",
+    "genre": "R&B",
+    "release_year": 2022,
+    "artistId": 3
+  },
+  {
+    "id": 4,
+    "name": "Blonde",
+    "genre": "Alternative R&B",
+    "release_year": 2012,
+    "artistId": 4
+  },
+  {
+    "id": 5,
+    "name": "4 Your Eyez Only",
+    "genre": "Hip Hop",
+    "release_year": 2016,
+    "artistId": 5
+  },
+  {
+    "id": 6,
+    "name": "Certified Lover Boy",
+    "genre": "Hip Hop",
+    "release_year": 2021,
+    "artistId": 6
+  },
+  {
+    "id": 7,
+    "name": "PartyNextDoor 4 (P4)",
+    "genre": "R&B",
+    "release_year": 2024,
+    "artistId": 7
+  },
+  {
+    "id": 8,
+    "name": "Too Late To Die Young",
+    "genre": "R&B",
+    "release_year": 2022,
+    "artistId": 8
+  },
+  {
+    "id": 9,
+    "name": "After Hours",
+    "genre": "R&B",
+    "release_year": 2020,
+    "artistId": 9
+  },
+  {
+    "id": 10,
+    "name": "Views",
+    "genre": "Hip Hop",
+    "release_year": 2016,
+    "artistId": 6
+  }
+]

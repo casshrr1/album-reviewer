@@ -1,0 +1,27 @@
+{ 
+  "name": "music-reviewer-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "pretest": "node --check app.js js/main.js js/api.js && echo 'Syntax check passed!'",
+    "test": "NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "engines": {
+  "node": ">=18.0.0"
+},
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "nodemon": "^3.0.0",
+    "supertest": "^7.2.2"
+  }
+}

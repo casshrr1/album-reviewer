@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Reviewer</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="server-error" class="hidden">
+  Cannot connect to the server.
+  <button id="retry-btn">Retry</button>
+  </div>
+
+  <header>
+    <h1>Music Reviewer</h1>
+  </header>
+
+  <main>
+    <!-- ---------------- ARTISTS ---------------- -->
+    <section id="artists-section">
+      <h2>Artists</h2>
+      <ul id="artists-list"></ul>
+      <form id="add-artist-form">
+        <input type="text" id="artist-name" placeholder="New artist name" required>
+        <input type="text" id="artist-genre" placeholder="Genre" required>
+        <input type="number" id="artist-debut-year" placeholder="Debut Year" required>
+        <button type="submit">Add Artist</button>
+      </form>
+    </section>
+
+    <!-- ---------------- ALBUMS ---------------- -->
+    <section id="albums-section" class="hidden">
+      <h2>Albums of <span id="artist-name-heading"></span></h2>
+      <p>Genre: <span id="artist-genre-display">N/A</span> | Debut Year: <span id="artist-debut-year-display">N/A</span></p>
+
+      <ul id="albums-list"></ul>
+      <form id="add-album-form">
+        <input type="text" id="album-name" placeholder="Album name" required>
+        <input type="text" id="album-genre" placeholder="Genre" required>
+        <input type="number" id="album-year" placeholder="Release Year" required>
+        <button type="submit">Add Album</button>
+      </form>
+      <button id="back-to-artists">← Back to Artists</button>
+    </section>
+
+
+    <!-- ---------------- REVIEWS ---------------- -->
+    <section id="reviews-section" class="hidden">
+      <h2>Reviews for <span id="album-name-heading"></span></h2>
+      <ul id="reviews-list"></ul>
+
+      <form id="add-review-form">
+        <input type="number" id="review-rating" placeholder="Rating" step="0.1" min="0" max="10" required>
+        <textarea id="review-comment" placeholder="Comment" required></textarea>
+        <button type="submit">Add Review</button>
+      </form>
+      <button id="back-to-albums">← Back to Albums</button>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

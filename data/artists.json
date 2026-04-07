@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Lil Wayne",
+    "genre": "Hip Hop",
+    "debut_year": 1999
+  },
+  {
+    "id": 2,
+    "name": "A$AP Rocky",
+    "genre": "Hip Hop",
+    "debut_year": 2011
+  },
+  {
+    "id": 3,
+    "name": "Brent Faiyaz",
+    "genre": "R&B",
+    "debut_year": 2013
+  },
+  {
+    "id": 4,
+    "name": "Frank Ocean",
+    "genre": "Alternative R&B",
+    "debut_year": 2012
+  },
+  {
+    "id": 5,
+    "name": "J. Cole",
+    "genre": "Hip Hop",
+    "debut_year": 2007
+  },
+  {
+    "id": 6,
+    "name": "Drake",
+    "genre": "Hip Hop",
+    "debut_year": 2006
+  },
+  {
+    "id": 7,
+    "name": "PARTYNEXTDOOR",
+    "genre": "R&B",
+    "debut_year": 2013
+  },
+  {
+    "id": 8,
+    "name": "Sonder",
+    "genre": "R&B",
+    "debut_year": 2017
+  },
+  {
+    "id": 9,
+    "name": "The Weeknd",
+    "genre": "R&B",
+    "debutYear": 2010
+  }
+]

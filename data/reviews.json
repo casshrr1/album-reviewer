@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "albumId": 6,
+    "rating": 4.2,
+    "review": "I feel Drake been phoning it in on his last couple albums, but he really phoned it in with this. I got through one listen and just don't see myself returning to it. Its so boring.",
+    "date": "23.09.2021"
+  },
+  {
+    "id": 2,
+    "albumId": 6,
+    "rating": 7.1,
+    "review": "I really like Girls Want Girls. Matter of fact, it's one of my most replayed Drake songs.",
+    "date": "05.09.2021"
+  },
+  {
+    "id": 3,
+    "albumId": 3,
+    "rating": 8.5,
+    "review": "Brent Faiyaz keeps finding greatness in simplicity",
+    "date": "12.11.2022"
+  },
+  {
+    "id": 4,
+    "albumId": 3,
+    "rating": 9.3,
+    "review": "This stuff is good. Best song is DEAD MAN WALKING.",
+    "date": "15.08.2022"
+  },
+  {
+    "id": 5,
+    "albumId": 1,
+    "rating": 8.5,
+    "review": "this album is really growing on me!",
+    "date": "26.01.2026"
+  },
+  {
+    "id": 7,
+    "albumId": 2,
+    "rating": 6.8,
+    "review": "Don't Be Dumb is cool…. But after 8 years I kinda expected Rocky to levitate, not just walk confidently.",
+    "date": "16.01.2026"
+  },
+  {
+    "id": 8,
+    "albumId": 2,
+    "rating": 8.2,
+    "date": "27.01.2026",
+    "review": "Worth the wait"
+  },
+  {
+    "id": 9,
+    "albumId": 4,
+    "rating": 9.9,
+    "review": "Blonde is one of those albums that works spectacularly when you feel broken inside and you just need to be able to get out all that pain you carry inside.",
+    "date": "02.03.2023"
+  },
+  {
+    "id": 10,
+    "albumId": 4,
+    "rating": 10,
+    "review": "Frank Ocean's solo discography is often times some of the most glazed music on the average music reviewing site, and I agree with all of it. His music is just that good.",
+    "date": "19.07.2025"
+  },
+  {
+    "id": 12,
+    "albumId": 5,
+    "rating": 8.1,
+    "review": "It's a special work, one that might require several thorough spins -- across a long stretch of time -- to be fully appreciated by those who love Cole's hit singles.",
+    "date": "17.04.2019"
+  },
+  {
+    "id": 13,
+    "albumId": 7,
+    "rating": 2.5,
+    "review": "I am happy to announce that this music is just as corny as the album cover here. I really don't know what he was thinking with copying Drake's corny persona and putting it over an R&B sound.",
+    "date": "22.08.2025"
+  },
+  {
+    "id": 14,
+    "albumId": 7,
+    "rating": 7,
+    "review": "PARTYNEXTDOOR 4 is an enjoyable listen, but it doesn't really push any boundaries or bring anything fresh.",
+    "date": "13.07.2025"
+  },
+  {
+    "id": 15,
+    "albumId": 8,
+    "rating": 7.8,
+    "review": "TOO LATE TO DIE YOUNG is short, smooth, and exactly what you'd expect from Brent and the crew—pure vibes. Brent's vocals glide beautifully over the dreamy production, making every track perfect for a late-night drive.",
+    "date": "22.03.2025"
+  },
+  {
+    "id": 16,
+    "albumId": 8,
+    "rating": 9.4,
+    "review": "Honestly, everyone else should just stop making rnb music. I mean, what's the point when Sonder exists?",
+    "date": "01.12.2022"
+  },
+  {
+    "id": 17,
+    "albumId": 9,
+    "rating": 9.1,
+    "review": "No, it's not comparable to old Weeknd material, nor should it be. As he evolves, he continues to reinvent himself, and he knows exactly how to leave fans hooked on havoc.",
+    "date": "07.11.2020"
+  },
+  {
+    "id": 18,
+    "albumId": 9,
+    "rating": 8.2,
+    "review": "After Hours is the most satisfying blend of “old” and “new” Weeknd that he's ever put forth on a single project.",
+    "date": "30.10.2020"
+  },
+  {
+    "id": 21,
+    "albumId": 10,
+    "rating": 9,
+    "review": "reojgapsof",
+    "date": "29.01.2026"
+  }
+]

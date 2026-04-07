@@ -1,0 +1,146 @@
+/* ----------------- General ----------------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f0f5;
+  color: #333;
+}
+
+header {
+  background: #6c63ff;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  padding: 1rem 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/* ----------------- Forms ----------------- */
+form {
+  margin: 1rem 0;
+}
+
+form input,
+form textarea,
+form button {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+form input[type="text"],
+form input[type="number"] {
+  width: 150px;
+  margin-right: 0.5rem;
+}
+
+form textarea {
+  width: 300px;
+  height: 40px;
+  resize: vertical;
+  margin-right: 0.5rem;
+  vertical-align: top;
+}
+
+form button {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #574fd6;
+}
+
+/* ----------------- Add Review Form ----------------- */
+#add-review-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+#add-review-form input[type="number"] {
+  width: 80px;
+}
+
+#add-review-form textarea {
+  flex: 1;
+  min-height: 40px;
+}
+
+#add-review-form button {
+  height: 40px;
+  align-self: flex-start;
+}
+
+/* ----------------- Review list ----------------- */
+#reviews-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.review-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#server-error {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+#server-error button {
+  margin-left: 12px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #7f1d1d;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#server-error button:hover {
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none;
+}
