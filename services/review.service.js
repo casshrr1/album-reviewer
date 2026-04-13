@@ -1,6 +1,5 @@
-import reviewRepository from '../repositories/reviews.repository.js';
-import Review from '../models/review.js';
-import albumRepository from '../repositories/album.repository.js'; 
+import reviewRepository from '../repositories/reviews.repositoryDb.js';
+import albumRepository from '../repositories/album.repositoryDb.js'; 
 
 function getTodayDate() {
     const now = new Date();
@@ -9,69 +8,80 @@ function getTodayDate() {
            `${now.getFullYear()}`;
 }
 
-function addReview(albumId, rating, review) {
-    const album = albumRepository.findById(albumId);
+function formatReviewResponse(reviewRow) {
+    if (!reviewRow) return null;
 
-    if(!album) {
-        throw new Error ("Album not found");
-    } else {
-        if (rating > 10 || rating < 0) {
-            throw new Error ("Rating has to be between 0 and 10");
-        } else {
-            const reviews = reviewRepository.findAll();
-                const maxId = reviews.length === 0
-                ? 0
-                : Math.max(...reviews.map(a => a.id));
-
-            const newId = maxId + 1; 
-            const date = getTodayDate();
-            const newReview = new Review(newId, Number(albumId), rating, review, date);
-
-            reviewRepository.saveReview(newReview);
-            return newReview;
-        }
-    }
+    return {
+        id: Number(reviewRow.id),
+        albumId: Number(reviewRow.albumId),
+        rating: Number(reviewRow.rating),
+        review: reviewRow.comment,
+        date: reviewRow.date
+    };
 }
 
-function updateReview(id, newRating, newText) {
-    const review = getReviewById(id);
+async function addReview(albumId, rating, review) {
+    const album = await albumRepository.findById(albumId);
+
+    if (!album) {
+        throw new Error("Album not found");
+    }
+
+    if (rating > 10 || rating < 0) {
+        throw new Error("Rating has to be between 0 and 10");
+    }
+
+    const newReview = {
+        albumId: Number(albumId),
+        rating: Number(rating),
+        comment: review,
+        date: getTodayDate()
+    };
+
+    const savedReview = await reviewRepository.saveReview(newReview);
+    return formatReviewResponse(savedReview);
+}
+
+async function updateReview(id, newRating, newText) {
+    const review = await getReviewById(id);
 
     if (!review) {
         throw new Error("The review is non existent");
-    } else {
-        if (newRating > 10 || newRating < 0) {
-            throw new Error("The Rating has to be between 0 and 10");
-        } else {
-            review.rating = newRating;
-            review.review = newText;
-            review.date = getTodayDate();
-
-            reviewRepository.updateReview(review);
-            return review;
-        }
     }
+
+    if (newRating > 10 || newRating < 0) {
+        throw new Error("The Rating has to be between 0 and 10");
+    }
+
+    const updatedReview = {
+        rating: Number(newRating),
+        comment: newText,
+        date: getTodayDate()
+    };
+
+    const saved = await reviewRepository.updateReview(id, updatedReview);
+    return formatReviewResponse(saved);
 }
 
-function getReviewsByAlbumId(albumId) {
-    const allReviews = reviewRepository.findAll();
-    const id = Number(albumId); 
-    const reviews = allReviews.filter(r => Number(r.albumId) === id);
-    return reviews; 
-};
+async function getReviewsByAlbumId(albumId) {
+    const reviews = await reviewRepository.findByAlbumId(Number(albumId));
+    return reviews.map(formatReviewResponse);
+}
 
-function getReviewById(id) {
-    return reviewRepository.findById(id);
-};
+async function getReviewById(id) {
+    const review = await reviewRepository.findById(id);
+    return formatReviewResponse(review);
+}
 
-function deleteByReviewId(id) {
-    const review = reviewRepository.findById(id);
+async function deleteByReviewId(id) {
+    const review = await reviewRepository.findById(id);
 
     if (!review) {
         throw new Error('The Review is non-existent');
-    } else {
-        return reviewRepository.deleteByReviewId(id);
     }
-};
+
+    return await reviewRepository.deleteByReviewId(id);
+}
 
 export default {
     addReview,

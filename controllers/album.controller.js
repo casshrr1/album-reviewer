@@ -12,19 +12,19 @@
 
 import albumService from '../services/album.service.js';
 
-function getAllAlbums(req, res) {
+async function getAllAlbums(req, res) {
     try {
-        const albums = albumService.getAllAlbums();
+        const albums = await albumService.getAllAlbums();
         res.status(200).json(albums);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 }
 
-function getAlbumById(req, res) {
+async function getAlbumById(req, res) {
     try {
         const albumId = parseInt(req.params.id);
-        const album = albumService.getAlbumById(albumId);
+        const album = await albumService.getAlbumById(albumId);
 
         if (!album) return res.status(404).json({ error: "Album not found" });
 
@@ -34,10 +34,10 @@ function getAlbumById(req, res) {
     }
 }
 
-function getAlbumsByArtist(req, res) {
+async function getAlbumsByArtist(req, res) {
     try {
         const artistId = parseInt(req.params.artistId);
-        const albums = albumService.getAlbumsByArtistId(artistId);
+        const albums = await albumService.getAlbumsByArtistId(artistId);
 
         res.status(200).json(albums);
     } catch (err) {
@@ -45,10 +45,10 @@ function getAlbumsByArtist(req, res) {
     }
 }
 
-function addAlbum(req, res) {
+async function addAlbum(req, res) {
     try {
         const { name, genre, release_year, artistId } = req.body;
-        const newAlbum = albumService.addAlbum(name, genre, release_year, artistId);
+        const newAlbum = await albumService.addAlbum(name, genre, release_year, artistId);
 
         res.status(201).json(newAlbum);
     } catch (err) {
@@ -56,10 +56,10 @@ function addAlbum(req, res) {
     }
 }
 
-function deleteAlbum(req, res) {
+async function deleteAlbum(req, res) {
     try {
         const albumId = parseInt(req.params.id);
-        const success = albumService.deleteByAlbumId(albumId);
+        const success = await albumService.deleteByAlbumId(albumId);
 
         if (!success) return res.status(404).json({ error: "Album not found" });
 

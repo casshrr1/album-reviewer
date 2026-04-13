@@ -13,12 +13,14 @@
 import reviewService from '../services/review.service.js';
 
 // GET /reviews/:albumId
-function getReviewsByAlbum(req, res) {
+async function getReviewsByAlbum(req, res) {
     try {
         const albumId = parseInt(req.params.albumId);
-        const reviews = reviewService.getReviewsByAlbumId(albumId);
+        const reviews = await reviewService.getReviewsByAlbumId(albumId);
 
-        if (!reviews) return res.status(404).json({ error: "No reviews found" });
+        if (!reviews || reviews.length === 0) {
+        return res.status(200).json([]);
+        }
 
         res.status(200).json(reviews);
     } catch (err) {
@@ -27,10 +29,10 @@ function getReviewsByAlbum(req, res) {
 }
 
 // POST /reviews
-function addReview(req, res) {
+async function addReview(req, res) {
     try {
         const { albumId, rating, review } = req.body;
-        const newReview = reviewService.addReview(albumId, rating, review);
+        const newReview = await reviewService.addReview(albumId, rating, review);
         res.status(201).json(newReview);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -38,11 +40,11 @@ function addReview(req, res) {
 }
 
 // PUT /reviews/:id
-function updateReview(req, res) {
+async function updateReview(req, res) {
     try {
         const id = parseInt(req.params.id);
         const { rating, review } = req.body;
-        const updatedReview = reviewService.updateReview(id, rating, review);
+        const updatedReview = await reviewService.updateReview(id, rating, review);
 
         res.status(200).json(updatedReview);
     } catch (err) {
@@ -51,10 +53,10 @@ function updateReview(req, res) {
 }
 
 // DELETE /reviews/:id - delete a review
-function deleteReview(req, res) {
+async function deleteReview(req, res) {
     try {
         const reviewId = parseInt(req.params.id);
-        const deleted = reviewService.deleteByReviewId(reviewId);
+        const deleted = await reviewService.deleteByReviewId(reviewId);
 
         if (!deleted) return res.status(404).json({ error: "Review not found" });
         

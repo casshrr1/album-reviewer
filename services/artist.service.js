@@ -1,46 +1,44 @@
 import Artist from '../models/artist.js';
-import artistRepository from '../repositories/artist.repository.js';
+import artistRepository from '../repositories/artist.repositoryDb.js';
 
-const artistExists = (name) => {
-    const artists = artistRepository.findAll();
+const artistExists = async (name) => {
+    const artists = await artistRepository.findAll();
 
     return artists.some(
         artist => artist.name.toLowerCase() === name.toLowerCase()
     );
 };
 
-function getAllArtists() {
-    return artistRepository.findAll();
+async function getAllArtists() {
+    return await artistRepository.findAll();
 }
 
-function getArtistById(id) {
-    return artistRepository.findById(id) || null;
+async function getArtistById(id) {
+    return await artistRepository.findById(id) || null;
 }
 
-function addArtist(name, genre, debut_year) {
-    if(artistExists(name)) {
+async function addArtist(name, genre, debut_year) {
+    if(await artistExists(name)) {
         throw new Error("Artist already exists");
     } else {
-        const artists = artistRepository.findAll();
-        const maxId = artists.length === 0
-        ? 0
-        : Math.max(...artists.map(a => a.id));
+        const newArtist = {
+            name,
+            genre,
+            debut_year
+        };
 
-        const newId = maxId + 1;
-        const newArtist = new Artist(newId, name, genre, debut_year);
-
-        artistRepository.saveArtist(newArtist);
-        return newArtist;
+        const savedArtist = await artistRepository.saveArtist(newArtist); // 🔴 CHANGED
+        return savedArtist;
     }
 }
 
-function deleteByArtistId(id) {
-    const artist = artistRepository.findById(id);
+async function deleteByArtistId(id) {
+    const artist = await artistRepository.findById(id);
 
     if(!artist) {
         return false;
     } else {
-        return artistRepository.deleteByArtistId(id);
+        return await artistRepository.deleteByArtistId(id);
     }
 }
 

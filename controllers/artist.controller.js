@@ -12,9 +12,9 @@
 import artistService from '../services/artist.service.js';
 
 // GET /artists
-function getAllArtists(req, res) {
+async function getAllArtists(req, res) {
     try {
-        const artists = artistService.getAllArtists();
+        const artists = await artistService.getAllArtists();
         res.status(200).json(artists);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -22,10 +22,10 @@ function getAllArtists(req, res) {
 }
 
 // GET /artists/:id - get a single artist
-function getArtistById(req, res) {
+async function getArtistById(req, res) {
     try {
         const artistId = parseInt(req.params.id);
-        const artist = artistService.getArtistById(artistId);
+        const artist = await artistService.getArtistById(artistId);
 
         if (!artist) {
             return res.status(404).json({ error: "Artist not found" });
@@ -38,10 +38,10 @@ function getArtistById(req, res) {
 }
 
 // POST /artists
-function addArtist(req, res) {
+async function addArtist(req, res) {
     try {
         const { name, genre, debut_year } = req.body;
-        const newArtist = artistService.addArtist(name, genre, debut_year);
+        const newArtist = await artistService.addArtist(name, genre, debut_year);
         res.status(201).json(newArtist);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -49,10 +49,10 @@ function addArtist(req, res) {
 }
 
 // DELETE /artists/:id
-function deleteArtist(req, res) {
+async function deleteArtist(req, res) {
     try {
         const artistId = parseInt(req.params.id);
-        const success = artistService.deleteByArtistId(artistId);
+        const success = await artistService.deleteByArtistId(artistId);
 
         if (!success) return res.status(404).json({ error: "Artist not found" });
 
