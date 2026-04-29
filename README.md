@@ -10,6 +10,70 @@ Content-Type: application/json
 
 ---
 
+## How to Test the App
+
+A typical test workflow is:
+
+1. Create an artist using `POST /artists`.
+2. Copy the returned artist `id`.
+3. Create an album using `POST /albums` and use that artist `id` as `artistId`.
+4. Copy the returned album `id`.
+5. Create a review using `POST /reviews` and use that album `id` as `albumId`.
+6. Check the results using:
+   - `GET /artists`
+   - `GET /albums/artist/:artistId`
+   - `GET /reviews/album/:albumId`
+
+Example order:
+
+```text
+Create Artist → Create Album → Create Review
+```
+
+### Example Valid Inputs
+
+Artist:
+
+```json
+{
+  "name": "Kendrick Lamar",
+  "genre": "Hip Hop",
+  "debut_year": 2011
+}
+```
+
+Album:
+
+```json
+{
+  "name": "DAMN.",
+  "genre": "Hip Hop",
+  "release_year": 2017,
+  "artistId": 1
+}
+```
+
+Review:
+
+```json
+{
+  "albumId": 1,
+  "rating": 9,
+  "review": "Strong production and lyricism"
+}
+```
+
+> Replace `artistId` and `albumId` with the IDs returned by your own requests.
+
+Important input rules:
+
+- `artistId` must refer to an existing artist.
+- `albumId` must refer to an existing album.
+- `rating` must be between 0 and 10.
+- `release_year` cannot be in the future.
+
+---
+
 ## Data Models
 
 ### Artist
@@ -390,3 +454,11 @@ The client uses `fetch` through a `safeFetch()` helper:
 - `400 Bad Request` — validation errors  
 - `404 Not Found` — entity does not exist  
 - `500 Internal Server Error` — unexpected server errors
+
+---
+
+## Known Limitations
+
+- The first request may take a few seconds if the app is deployed on Render’s free tier.
+- Error messages are currently simple and could be made more user-friendly in a future version.
+- Users need to follow the correct order: create an artist first, then an album, then a review.
